@@ -9,7 +9,7 @@ const App = () =>{
         if(event.key === 'Enter')
         {
             const data = await fetchWeather(query)
-
+            console.log(data);
             setWeather(data);
             setQuery('');
         }
@@ -37,6 +37,8 @@ const App = () =>{
                     <div className="info">
                         <img className="city-icon" src={`https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`} alt={weather.weather[0].description}/>
                         <p>{weather.weather[0].description}</p>
+                        <p>Wind speed: {weather.wind.speed} km/h</p>
+                        <p>Atmospheric pressure: {Math.round(weather.main.pressure*0.75)} mmHg</p>
                     </div>
                 </div>
 
